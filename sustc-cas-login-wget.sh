@@ -5,6 +5,8 @@ DOWN="wget -qO-"
 if [ -n "$3" ]; then
 DOWN="$DOWN --bind-address $3"
 fi
+
+#URL=`$DOWN --max-redirect 0 -SO/dev/null baidu.com 2>&1 | grep "Location: http://enet.10000.gd.cn" | sed 's/Location: //'`
 FORM=`$DOWN baidu.com 2> /dev/null`
 if echo $FORM | grep -q "/cas/login"
 then
